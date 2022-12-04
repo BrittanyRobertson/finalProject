@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>FamPlan</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <h1>Monthly Calendar View</h1>
+    <h4>very nice</h4>
+    <p>Number of events coming up in the next month: <%= data.numRows %>  </p>
+
+    <table>
+      <% for(var i=0; i < data.numRows; i++) { %>
+        <tr>
+          <td><%= data.result[i].eventname %></td>
+          <td>On <%= data.result[i].eventdate %></td>
+          <td>Submitted by <%= data.result[i].contributorname %></td>
+          <td><a href="/calendar/view-event?ID=<%= data.result[i].eventid %>">View Event</a></td>
+        </tr>
+      <% } %>
+    </table>
+	<script src="index.js"></script>
+  <br>
+  <a href="/calendar/new-event">Add a new event</a>
+  <br>
+  <a href="/calendar/Weekly/">To Weekly View</a>
+  </body>
+</html>
