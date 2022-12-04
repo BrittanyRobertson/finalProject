@@ -4,6 +4,7 @@ var sass = require('gulp-sass')(require('sass'));
 var autoprefixer = require('gulp-autoprefixer');
 var sourcemaps = require('gulp-sourcemaps');
 var open = require('gulp-open');
+var gls = require('gulp-live-server');
 
 var Paths = {
   HERE: './',
@@ -32,3 +33,8 @@ gulp.task('open', function() {
 });
 
 gulp.task('open-app', gulp.parallel('open', 'watch'));
+
+gulp.task('express', function() {
+  var server = gls.new('./index.js');
+  return server.start();
+});
