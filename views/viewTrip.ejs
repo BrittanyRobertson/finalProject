@@ -1,0 +1,27 @@
+<% if (data.destination != undefined || data.destination != '') { %>
+    <h3> <%= data.destination %> </h3>
+<% } %>
+<% if (data.cost != undefined || data.cost != '') { %>
+    <h4>Estimated Cost: <%= data.cost %> </h4>
+<% } %>
+<% if (data.date != undefined || data.date != '') { %>
+    <h4>Estimated Days: <%= data.date %> </h4>
+<% } %>
+<% if (data.notes != undefined || data.ntoes != '') { %>
+    <h4><%= data.notes %> </h4>
+<% } %>
+
+
+
+<a href="/vacation/update-trip?ID=<%= data.id %>">Edit Trip</a>
+<br>
+<a href="/vacation/delete-trip?ID=<%= data.id %>">Delete Trip</a>
+<br>
+<br>
+<a href="/vacation/new-trip">Add a new trip</a>
+<br>
+<a href="/vacation/">To Bucket List</a>
+
+<br>
+<a href="/">Home</a>
+

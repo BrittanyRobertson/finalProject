@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>FamPlan</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <h1>Vacation Bucket List</h1>
+    <h4>very exotic</h4>
+    <p>Number of trips left: <%= data.numRows %>  </p>
+
+    <table>
+      <% for(var i=0; i < data.numRows; i++) { %>
+        <tr>
+          <td><%= data.result[i].destination %></td>
+          <td>Minimum <%= data.result[i].mindays %> days</td>
+          <td>Approximately costs $<%= data.result[i].approxcost %> </td>
+          <td><%= data.result[i].notes %></td>
+          <td><a href="/vacation/view-trip?ID=<%= data.result[i].vacationid %>">View Trip</a></td>
+        </tr>
+      <% } %>
+    </table>
+	<script src="index.js"></script>
+  <br>
+  <a href="/vacation/new-trip">Add a new trip</a>
+  </body>
+</html>

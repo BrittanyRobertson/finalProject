@@ -1,0 +1,30 @@
+<% if (data.name != undefined || data.name != '') { %>
+    <h4>Event Name: <%= data.name %> </h4>
+<% } %>
+<% if (data.contributor != undefined || data.contributor != '') { %>
+    <h4>Event Contributor: <%= data.contributor %> </h4>
+<% } %>
+<% if (data.date != undefined || data.date != '') { %>
+    <h4>Event Date: <%= data.date %> </h4>
+<% } %>
+<% if (data.start != undefined || data.start != '') { %>
+    <h4>Start Time: <%= data.start %> </h4>
+<% } %>
+<% if (data.end != undefined || data.end != '') { %>
+    <h4>End Time: <%= data.end %> </h4>
+<% } %>
+
+
+<a href="/calendar/update-event?ID=<%= data.id %>">Edit Event</a>
+<br>
+<a href="/calendar/delete-event?ID=<%= data.id %>">Delete Event</a>
+<br>
+<br>
+<a href="/calendar/new-event">Add a new event</a>
+<br>
+<a href="/calendar/">To Monthly View</a>
+<br>
+<a href="/calendar/Weekly/">To Weekly View</a>
+<br>
+<a href="/">Home</a>
+

@@ -1,0 +1,23 @@
+
+<h2>Update Trip</h2>
+
+<form action="/vacation/update-trip/_update">
+    <div class="formbuilder-text form-group field-dest">
+        <label for="dest" class="formbuilder-text-label">Destination<span class="formbuilder-required">*</span></label>
+        <input type="text" class="form-control" name="dest" access="false" id="dest" required value="<%= data.destination %>">
+    </div>
+    <div class="formbuilder-number form-group field-days">
+        <label for="days" class="formbuilder-number-label">Minimum Days<span class="formbuilder-required">*</span></label>
+        <input type="number" class="form-control" name="days" access="false" value="1" min="1" step="1" id="days" required value="<%= data.days %>">
+    </div>
+    <div class="formbuilder-number form-group field-cost">
+        <label for="cost" class="formbuilder-number-label">Approximate Cost<span class="formbuilder-required">*</span></label>
+        <input type="number" class="form-control" name="cost" access="false" min="0" id="cost" required value="<%= data.cost %>">
+    </div>
+    <div class="formbuilder-textarea form-group field-notes">
+        <label for="notes" class="formbuilder-textarea-label">Description<span class="formbuilder-required">*</span></label>
+        <textarea type="textarea" class="form-control" name="notes" access="false" id="notes" required value="<%= data.notes %>"></textarea>
+    </div>
+    <input type="hidden" name="id" id="id" value="<%= data.id %>">
+    <input type="submit" value="Submit">
+</form>

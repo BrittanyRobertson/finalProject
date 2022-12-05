@@ -1,0 +1,28 @@
+
+<h2>Update Event</h2>
+
+<form action="/calendar/update-event/_update">
+    <div class="formbuilder-text form-group field-name">
+        <label for="name" class="formbuilder-text-label">Event Name</label>
+        <input type="text" class="form-control" name="name" access="false" id="name" value="<%= data.name %>" required>
+    </div>
+    <div class="formbuilder-text form-group field-contributor">
+        <label for="contributor" class="formbuilder-text-label">Submitted by</label>
+        <input type="text" class="form-control" name="contributor" access="false" id="contributor" value="<%= data.contributor %>" required>
+    </div>
+    <div class="formbuilder-date form-group field-startDate">
+        <label for="startDate" class="formbuilder-date-label">Event Date</label>
+        <input type="date" class="form-control" name="startDate" access="false" id="startDate" value="<%= data.startDate %>" required>
+    </div>
+    <div class="formbuilder-text form-group field-start">
+        <label for="start" class="formbuilder-text-label">Start Time</label>
+        <input type="time" class="form-control" name="start" access="false" id="start" value="<%= data.start %>" required>
+    </div>
+    <div class="formbuilder-text form-group field-end">
+        <label for="end" class="formbuilder-text-label">End Time</label>
+        <input type="time" class="form-control" name="end" access="false" id="end" value="<%= data.end %>" required>
+    </div>
+    <input type="hidden" name="id" id="id" value="<%= data.id %>">
+    <input type="submit" value="Submit">
+</form>
+
