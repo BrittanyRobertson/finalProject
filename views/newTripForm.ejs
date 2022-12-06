@@ -82,6 +82,7 @@
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
             <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="/">Dashboard</a></li>
+            <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="/tables">Vacation & Reading Tables</a></li>
             <li class="breadcrumb-item text-sm text-dark active" aria-current="page">New Trip Form</li>
           </ol>
           <h4 class="font-weight-bolder mb-0">New Trip Form</h4>
@@ -112,26 +113,26 @@
                 </thead>
                   <tbody>
                     <tr>
-                      <td style="border-bottom: 1px solid #f0f2f5;">
-                        <div class="formbuilder-text form-group field-dest">
+                        <td class="align-middle" style="border-bottom: 1px solid #f0f2f5; border-right: 1px solid #f0f2f5;">
+                            <div class="input-group input-group-outline">
                             <!-- <label for="dest" class="formbuilder-text-label">Destination<span class="formbuilder-required">*</span></label> -->
-                            <input type="text" class="form-control" name="dest" access="false" id="dest" required="required" aria-required="true">
+                            <input type="text" class="form-control ms-2" name="dest" access="false" id="dest" required="required" aria-required="true">
                         </div>
                       </td>
-                      <td style="border-bottom: 1px solid #f0f2f5;">
-                        <div class="formbuilder-number form-group field-days">
+                      <td class="align-middle" style="border-bottom: 1px solid #f0f2f5; border-right: 1px solid #f0f2f5;">
+                        <div class="input-group input-group-outline">
                             <!-- <label for="days" class="formbuilder-number-label">Minimum Days<span class="formbuilder-required">*</span></label> -->
                             <input type="number" class="form-control" name="days" access="false" value="1" min="1" step="1" id="days" required="required" aria-required="true">
                         </div>
                       </td>
-                      <td class="align-middle" style="border-bottom: 1px solid #f0f2f5;">
-                        <div class="formbuilder-number form-group field-cost">
+                      <td class="align-middle" style="border-bottom: 1px solid #f0f2f5; border-right: 1px solid #f0f2f5;">
+                        <div class="input-group input-group-outline">
                             <!-- <label for="cost" class="formbuilder-number-label">Approximate Cost<span class="formbuilder-required">*</span></label> -->
                             <input type="number" class="form-control" name="cost" access="false" min="0" id="cost" required="required" aria-required="true">
                         </div>
                       </td>
-                      <td class="align-middle text-center" style="border-bottom: 1px solid #f0f2f5;">
-                        <div class="formbuilder-textarea form-group field-notes">
+                      <td class="align-middle" style="border-bottom: 1px solid #f0f2f5; border-right: 1px solid #f0f2f5;">
+                        <div class="input-group input-group-outline mr-2">
                             <!-- <label for="notes" class="formbuilder-textarea-label">Description<span class="formbuilder-required">*</span></label> -->
                             <textarea type="textarea" class="form-control" name="notes" access="false" id="notes" required="required" aria-required="true"></textarea>
                         </div>
