@@ -51,7 +51,9 @@ router.get('/update-trip/_update', async (request, response) => {
         notes: request.query.notes,
         id :request.query.id
     }
-    response.render('viewTrip', {data: placeHolder})
+    const vacations = await knex.raw("select * from vacations;")
+    const numRows = vacations.rows.length
+    response.render('vacationsView', {data: {result: (vacations.rows), numRows : numRows}})
 })
 
 router.get('/update-trip', async (request, response) => {
@@ -92,7 +94,9 @@ router.get('/new-trip/_add', async (request, response) => {
         notes: notes,
         id :lastID
     }
-    response.render('viewTrip', {data: placeHolder})
+    const vacations = await knex.raw("select * from vacations;")
+    const numRows = vacations.rows.length
+    response.render('vacationsView', {data: {result: (vacations.rows), numRows : numRows}})
 })
 
 router.get('/new-trip', (request, response) => {
