@@ -44,6 +44,7 @@ router.get('/update-trip/_update', async (request, response) => {
     notes = \'` + request.query.notes + `\'
     where vacationid = ` + request.query.id + `;`)
     //render view
+<<<<<<< Updated upstream
     const placeHolder = {
         destination: request.query.dest,
         days: request.query.days,
@@ -54,6 +55,9 @@ router.get('/update-trip/_update', async (request, response) => {
     const vacations = await knex.raw("select * from vacations;")
     const numRows = vacations.rows.length
     response.render('vacationsView', {data: {result: (vacations.rows), numRows : numRows}})
+=======
+    response.redirect('/tables/');
+>>>>>>> Stashed changes
 })
 
 router.get('/update-trip', async (request, response) => {
@@ -87,6 +91,7 @@ router.get('/new-trip/_add', async (request, response) => {
     const trips = await knex.raw('select vacationid from vacations;')
     let lastID = trips.rows[trips.rows.length-1].vacationid
     // send us to view
+<<<<<<< Updated upstream
     const placeHolder = {
         destination: dest,
         days: days,
@@ -97,6 +102,9 @@ router.get('/new-trip/_add', async (request, response) => {
     const vacations = await knex.raw("select * from vacations;")
     const numRows = vacations.rows.length
     response.render('vacationsView', {data: {result: (vacations.rows), numRows : numRows}})
+=======
+    response.redirect('/tables/');
+>>>>>>> Stashed changes
 })
 
 router.get('/new-trip', (request, response) => {
@@ -107,9 +115,7 @@ router.get('/delete-trip', async (request, response) => {
     const ID = request.query.ID
     await knex.raw(`DELETE FROM vacations WHERE vacationid = ` + ID + `;`)
     // Take us to root
-    const vacations = await knex.raw("select * from vacations;")
-    const numRows = vacations.rows.length
-    response.render('vacationsView', {data: {result: (vacations.rows), numRows : numRows}})
+    response.redirect('/tables/');
 
 })
 

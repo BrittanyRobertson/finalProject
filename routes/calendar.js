@@ -81,6 +81,7 @@ router.get('/update-event/_update', async (request, response) => {
     eventendtime = \'` + request.query.end + `\' 
     where eventid = ` + request.query.id + `;`)
     //render view
+<<<<<<< Updated upstream
     const placeHolder = {
         name: request.query.name,
         date: request.query.startDate,
@@ -90,6 +91,9 @@ router.get('/update-event/_update', async (request, response) => {
         id :request.query.id
     }
     response.render('viewEvent', {data: placeHolder})
+=======
+    response.redirect('/calendar');
+>>>>>>> Stashed changes
 })
 
 router.get('/update-event', async (request, response) => {
@@ -125,6 +129,7 @@ router.get('/new-event/_add', async (request, response) => {
     // craft insert statement
     await knex.raw(`INSERT INTO events VALUES (` + newID.toString() + `,\'` + name + `\',\'` + startDate + `\',\'` + start + `\',\'` + contributor + `\',\'` + end + `\')`)
     // send us to view
+<<<<<<< Updated upstream
     const placeHolder = {
         id: newID,
         name: name,
@@ -134,6 +139,9 @@ router.get('/new-event/_add', async (request, response) => {
         end: end
     }
     response.render('viewEvent', {data: placeHolder})
+=======
+    response.redirect('/calendar');
+>>>>>>> Stashed changes
 })
 
 router.get('/new-event', (request, response) => {
@@ -144,11 +152,7 @@ router.get('/delete-event', async (request, response) => {
     const ID = request.query.ID
     await knex.raw(`DELETE FROM events WHERE eventid = ` + ID + `;`)
     // Take us to root
-    const searchDate = formatDate(monthFromNow())
-    const currentDate = formatDate(new Date())
-    const event = await knex.raw("select * from events where eventdate <= \'"+searchDate +"\' and eventdate >= \'"+ currentDate+"\';")
-    const numRows = event.rows.length
-    response.render('calendarMonthlyView', {data: {result: (event.rows), numRows : numRows}})
+    response.redirect('/calendar');
 
 })
 
