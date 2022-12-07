@@ -45,7 +45,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white active bg-gradient-primary" href="/tables">
+          <a class="nav-link text-white " href="/tables">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">table_view</i>
             </div>
@@ -53,7 +53,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white" href="/readings">
+          <a class="nav-link text-white active bg-gradient-primary" href="/readings">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">table_view</i>
             </div>
@@ -86,10 +86,16 @@
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
             <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="/">Dashboard</a></li>
-            <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="/tables">Vacation Bucket List</a></li>
-            <li class="breadcrumb-item text-sm text-dark active" aria-current="page">New Trip Form</li>
+            <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="/readings">Family Reading</a></li>
+            <li class="breadcrumb-item text-sm text-dark active" aria-current="page">
+                <%= data.scripturebook %> Details
+            </li>
           </ol>
-          <h4 class="font-weight-bolder mb-0">New Trip Form</h4>
+          <h4 class="font-weight-bolder mb-0">
+            <% if (data.scripturebook != undefined || data.scripturebook != '') { %>
+                <%= data.scripturebook %> Details
+            <% } %>
+          </h4>
         </nav>
       </div>
     </nav>
@@ -99,54 +105,55 @@
       <div class="col-12">
         <div class="card my-4">
           <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
-            <span style="float: right; padding-right: 40px;"><a class="btn bg-gradient-dark px-3 mb-2 mt-3 ms-4" data-class="bg-white" href="/tables">Go Back To Table</a></span>
+            <span style="float: right; padding-right: 40px;"><a class="btn bg-gradient-dark px-3 mb-2 mt-3 ms-4" data-class="bg-white" href="/readings">Go Back To Table</a></span>
             <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
-              <h6 class="text-white text-uppercase ps-3">Add a Trip</h6>
+              <h6 class="text-white text-uppercase ps-3 text-lg">
+                <% if (data.scripturebook != undefined || data.scripturebook != '') { %>
+                    <%= data.scripturebook %> Reading
+                <% } %>
+              </h6>
             </div>
           </div>
           <div class="card-body px-0 pb-2">
-            <div class="table-responsive p-0">
-            <form action="/tables/new-trip/_add">
+            <div class="p-0">
               <table class="table align-items-center mb-0">
                 <thead>
                   <tr>
-                    <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Destination</th>
-                    <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 ps-2">Minimum Days</th>
-                    <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 ps-2">Approximate Cost</th>
-                    <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 ps-2">Description</th>
+                    <th class="text-uppercase text-center text-secondary text-s font-weight-bolder opacity-7 ps-2">Scripture Book</th>
+                    <th class="text-uppercase text-center text-secondary text-s font-weight-bolder opacity-7 ps-2">Book</th>
+                    <th class="text-uppercase text-center text-secondary text-s font-weight-bolder opacity-7 ps-2">Chapter</th>
                   </tr>
                 </thead>
                   <tbody>
                     <tr>
-                        <td class="align-middle" style="border-bottom: 1px solid #f0f2f5; border-right: 1px solid #f0f2f5;">
-                            <div class="input-group input-group-outline">
-                            <!-- <label for="dest" class="formbuilder-text-label">Destination<span class="formbuilder-required">*</span></label> -->
-                            <input type="text" class="form-control ms-2" name="dest" access="false" id="dest" required="required" aria-required="true">
+                      <td class="align-middle text-center col-4" style="border-bottom: 1px solid #f0f2f5; border-right: 1px solid #f0f2f5;">
+                        <div class="text-sm mb-0">
+                            <% if (data.scripturebook != undefined || data.scripturebook != '') { %> 
+                                <h4><%= data.scripturebook %></h4>
+                            <% } %>
                         </div>
                       </td>
-                      <td class="align-middle" style="border-bottom: 1px solid #f0f2f5; border-right: 1px solid #f0f2f5;">
-                        <div class="input-group input-group-outline">
-                            <!-- <label for="days" class="formbuilder-number-label">Minimum Days<span class="formbuilder-required">*</span></label> -->
-                            <input type="number" class="form-control" name="days" access="false" value="1" min="1" step="1" id="days" required="required" aria-required="true">
+                      <td class="align-middle text-center col-4" style="border-bottom: 1px solid #f0f2f5; border-right: 1px solid #f0f2f5;">
+                        <div class="text-sm mb-0">
+                            <% if (data.book != undefined || data.book != '') { %>
+                                <h4><%= data.book %> </h4>
+                            <% } %>
                         </div>
                       </td>
-                      <td class="align-middle" style="border-bottom: 1px solid #f0f2f5; border-right: 1px solid #f0f2f5;">
-                        <div class="input-group input-group-outline">
-                            <!-- <label for="cost" class="formbuilder-number-label">Approximate Cost<span class="formbuilder-required">*</span></label> -->
-                            <input type="number" class="form-control" name="cost" access="false" min="0" id="cost" required="required" aria-required="true">
-                        </div>
-                      </td>
-                      <td class="align-middle" style="border-bottom: 1px solid #f0f2f5; border-right: 1px solid #f0f2f5;">
-                        <div class="input-group input-group-outline mr-2">
-                            <!-- <label for="notes" class="formbuilder-textarea-label">Description<span class="formbuilder-required">*</span></label> -->
-                            <textarea type="textarea" class="form-control" name="notes" access="false" id="notes" required="required" aria-required="true"></textarea>
+                      <td class="align-middle text-center col-4" style="border-bottom: 1px solid #f0f2f5; border-right: 1px solid #f0f2f5;">
+                        <div class="text-sm mb-0">
+                            <% if (data.chapter != undefined || data.chapter != '') { %>
+                                <h4><%= data.chapter %></h4>
+                            <% } %>
                         </div>
                       </td>
                     </tr> 
                   </tbody>
               </table>
-                <input class="btn bg-gradient-dark px-3 mb-2 mt-4 ms-4" data-class="bg-white" type="submit" value="Submit">
-            </form>
+              <div style="padding-right: 20px; float: right;">
+                <span><a class="btn bg-gradient-dark px-3 mb-2 mt-4 ms-4" data-class="bg-white" href="/readings/update-book?ID=<%= data.id %>">Edit Book</a></span>
+                <span><a class="btn bg-gradient-dark px-3 mb-2 mt-4 ms-4" data-class="bg-white" href="/readings/delete-book?ID=<%= data.id %>">Delete Book</a></span>
+              </div>
             </div>
           </div>
         </div>

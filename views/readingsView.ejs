@@ -45,7 +45,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white active bg-gradient-primary" href="/tables">
+          <a class="nav-link text-white " href="/tables">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">table_view</i>
             </div>
@@ -53,7 +53,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white" href="/readings">
+          <a class="nav-link text-white active bg-gradient-primary" href="/readings">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">table_view</i>
             </div>
@@ -86,9 +86,9 @@
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
             <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="/">Dashboard</a></li>
-            <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Vacation Bucket List</li>
+            <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Family Reading</li>
           </ol>
-          <h4 class="font-weight-bolder mb-0">Vacation Bucket List</h4>
+          <h4 class="font-weight-bolder mb-0">Family Reading</h4>
         </nav>
       </div>
     </nav>
@@ -99,7 +99,7 @@
           <div class="card my-4">
             <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
               <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
-                <h6 class="text-white text-uppercase ps-3">Vacation Bucket List</h6>
+                <h6 class="text-white text-uppercase ps-3">Family Reading</h6>
               </div>
             </div>
             <div class="card-body px-0 pb-2">
@@ -107,40 +107,40 @@
                 <table class="table align-items-center mb-0">
                   <thead>
                     <tr>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Destination</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Minimum Days</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Approximate Cost</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Scripture Book</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Book</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Chapter</th>
                       <th class="text-secondary opacity-7"></th>
                     </tr>
                   </thead>
-                  <% for(var i=0; i < data.numRows; i++) { %>
-                    <tbody>
-                      <tr>
-                        <td style="border-bottom: 1px solid #f0f2f5;">
-                          <div class="d-flex px-2 py-1">
-                            <div class="d-flex flex-column justify-content-center">
-                            <h6 class="mb-0 ps-2 text-sm"><%= data.result[i].destination %></h6>
-                          </div>
-                        </td>
-                        <td style="border-bottom: 1px solid #f0f2f5;">
-                          <p class="text-sm font-weight-bold mb-0"><%= data.result[i].mindays %> days</p>
-                        </td>
-                        <td class="align-middle" style="border-bottom: 1px solid #f0f2f5;">
-                          <span class="text-sm font-weight-bold mb-0">$<%= data.result[i].approxcost %></span>
-                        </td>
-                        <td class="align-middle text-center" style="border-bottom: 1px solid #f0f2f5;">
-                          <div class="d-flex align-items-center justify-content-center">
-                            <span class="mb-0 ps-3 text-sm">
-                              <a href="/tables/view-trip?ID=<%= data.result[i].vacationid %>">View Details</a>
-                            </span>
-                          </div>
-                        </td>
-                      </tr> 
-                    </tbody>
-                  <% } %>
+                    <% for(var i=0; i < data.rows; i++) { %>
+                        <tbody>
+                          <tr>
+                            <td style="border-bottom: 1px solid #f0f2f5;">
+                              <div class="d-flex px-2 py-1">
+                                <div class="d-flex flex-column justify-content-center">
+                                <h6 class="mb-0 ps-2 text-sm"><%= data.result[i].scripturebook %></h6>
+                              </div>
+                            </td>
+                            <td style="border-bottom: 1px solid #f0f2f5;">
+                              <p class="text-sm font-weight-bold mb-0"><%= data.result[i].book %></p>
+                            </td>
+                            <td class="align-middle text-center" style="border-bottom: 1px solid #f0f2f5;">
+                              <span class="text-sm font-weight-bold mb-0 text-center"><%= data.result[i].chapter %></span>
+                            </td>
+                            <td class="align-middle text-center" style="border-bottom: 1px solid #f0f2f5;">
+                              <div class="d-flex align-items-center justify-content-center">
+                                <span class="mb-0 ps-3 text-sm">
+                                  <a href="/readings/view-book?ID=<%= data.result[i].scriptureid %>">View Details</a>
+                                </span>
+                              </div>
+                            </td>
+                          </tr> 
+                        </tbody>
+                      <% } %>
                 </table>
                 <script src="index.js"></script>
-                <a class="btn bg-gradient-dark px-3 mb-2 mt-4 ms-4" data-class="bg-white" href="/tables/new-trip">Add New Trip</a>
+                <a class="btn bg-gradient-dark px-3 mb-2 mt-4 ms-4" data-class="bg-white" href="/readings/new-book">Add New Book</a>
               </div>
             </div>
           </div>
