@@ -81,19 +81,7 @@ router.get('/update-event/_update', async (request, response) => {
     eventendtime = \'` + request.query.end + `\' 
     where eventid = ` + request.query.id + `;`)
     //render view
-<<<<<<< Updated upstream
-    const placeHolder = {
-        name: request.query.name,
-        date: request.query.startDate,
-        contributor: request.query.contributor,
-        start: request.query.start,
-        end: request.query.end,
-        id :request.query.id
-    }
-    response.render('viewEvent', {data: placeHolder})
-=======
     response.redirect('/calendar');
->>>>>>> Stashed changes
 })
 
 router.get('/update-event', async (request, response) => {
@@ -129,19 +117,7 @@ router.get('/new-event/_add', async (request, response) => {
     // craft insert statement
     await knex.raw(`INSERT INTO events VALUES (` + newID.toString() + `,\'` + name + `\',\'` + startDate + `\',\'` + start + `\',\'` + contributor + `\',\'` + end + `\')`)
     // send us to view
-<<<<<<< Updated upstream
-    const placeHolder = {
-        id: newID,
-        name: name,
-        date: startDate,
-        contributor: contributor,
-        start: start,
-        end: end
-    }
-    response.render('viewEvent', {data: placeHolder})
-=======
     response.redirect('/calendar');
->>>>>>> Stashed changes
 })
 
 router.get('/new-event', (request, response) => {
