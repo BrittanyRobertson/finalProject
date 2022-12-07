@@ -73,6 +73,14 @@
             <span class="nav-link-text ms-1">Reminders</span>
           </a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link text-white " href="/calendar">
+              <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                <i class="material-icons opacity-10">today</i>
+              </div>
+              <span class="nav-link-text ms-1">Calendar</span>
+            </a>
+          </li>
       </ul>
     </div>
   </aside>
@@ -150,7 +158,6 @@
                   </tbody>
               </table>
               <div style="padding-right: 20px; float: right;">
-                <span><a class="btn bg-gradient-dark px-3 mb-2 mt-4 ms-4" data-class="bg-white" href="/tables/new-trip">Add New Trip</a></span>
                 <span><a class="btn bg-gradient-dark px-3 mb-2 mt-4 ms-4" data-class="bg-white" href="/tables/update-trip?ID=<%= data.id %>">Edit Trip</a></span>
                 <span><a class="btn bg-gradient-dark px-3 mb-2 mt-4 ms-4" data-class="bg-white" href="/tables/delete-trip?ID=<%= data.id %>">Delete Trip</a></span>
               </div>

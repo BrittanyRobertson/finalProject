@@ -82,6 +82,7 @@ router.get('/update-event/_update', async (request, response) => {
     where eventid = ` + request.query.id + `;`)
     //render view
     response.redirect('/calendar');
+
 })
 
 router.get('/update-event', async (request, response) => {
