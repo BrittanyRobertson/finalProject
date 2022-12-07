@@ -89,7 +89,7 @@ router.get('/update-event/_update', async (request, response) => {
         end: request.query.end,
         id :request.query.id
     }
-    response.render('viewEvent', {data: placeHolder})
+    response.render('calendarMonthlyView', {data: placeHolder})
 })
 
 router.get('/update-event', async (request, response) => {
@@ -133,7 +133,7 @@ router.get('/new-event/_add', async (request, response) => {
         start: start,
         end: end
     }
-    response.render('viewEvent', {data: placeHolder})
+    response.render('calendarMonthlyView', {data: placeHolder})
 })
 
 router.get('/new-event', (request, response) => {
