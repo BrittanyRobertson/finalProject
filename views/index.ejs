@@ -125,9 +125,8 @@
                 <script>
                   let time = new Date()
                   let hour = date.getHours();
-                  let minutes = date.getMinutes();
-
-                  let fullTime = `Current Time: ${hour}:${minutes}`;
+                  let minutes = String(date.getMinutes()).padStart(2, '0');
+                  let fullTime = `Current Time: ${hour}:${minutes}`
                   document.write(fullTime)
                 </script>
               </p>
